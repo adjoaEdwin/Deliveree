@@ -1,7 +1,7 @@
 import express from "express"
 import {json, urlencoded} from "body-parser";
 import cors from "cors";
-import morgan from morgan;
+import morgan from "morgan";
 import config from './config'
 
 export const app = express();
@@ -13,7 +13,7 @@ app.use(urlencoded({extended: true}))
 app.use(morgan("dev"))
 
 app.get('/', (req, res) => {
-    res.write({message: "ok"})
+    res.send("My little express server...")
 })
 
 export const start = () => {
