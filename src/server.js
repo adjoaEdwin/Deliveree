@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import config from "./config";
 import path from "path";
+import cropRouter from "./routes/crop.router";
 
 export const app = express();
 
@@ -19,6 +20,9 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 // app.use("/css", express.static(path.join(__dirname, "")));
 // app.use("view engine", "ejs");
+
+// routes -------------
+app.use("/api/crops", cropRouter);
 
 app.get("/", (req, res) => {
   res.send("My little express server...");
