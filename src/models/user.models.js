@@ -1,27 +1,30 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-const userSchema = new mongoose.Schema({
-  first_name: {
-    type: String,
-    required: true
+const userSchema = new mongoose.Schema(
+  {
+    first_name: {
+      type: String,
+      required: true
+    },
+    last_name: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    role: {
+      type: String,
+      enum: ["distributor", "admin"],
+      default: "distributor",
+      required: true
+    }
   },
-  last_name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  role: {
-    type: String,
-    enum: ["distributor", "admin"],
-    default: "distributor",
-    required: true
-  }
-});
+  { timestamps: true }
+);
 
 userSchema.pre("save", function(next) {
   if (!this.isModified("password")) {
@@ -57,4 +60,4 @@ userSchema.virtual("fullname").get(function() {
   return this.first_name + " " + this.last_name;
 });
 
-export const userSchema = mongoose.model("user", userSchema);
+export const User = mongoose.model("user", userSchema);
