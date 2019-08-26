@@ -11,9 +11,9 @@ const commentSchema = new mongoose.Schema(
       ref: "ticket",
       required: true
     },
-    user: {
+    commentedBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: true,
+      ref: "user",
       required: true
     }
   },

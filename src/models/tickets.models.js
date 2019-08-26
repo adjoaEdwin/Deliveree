@@ -19,7 +19,7 @@ const ticketSchema = new mongoose.Schema(
     isAnswered: {
       type: String
     },
-    user: {
+    openedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
       required: true

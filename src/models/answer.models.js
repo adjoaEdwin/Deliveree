@@ -11,7 +11,7 @@ const answerSchema = new mongoose.Schema(
       ref: "ticket",
       required: true
     },
-    user: {
+    answeredBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
       required: true

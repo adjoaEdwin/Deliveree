@@ -1,13 +1,20 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const cropSchema = new mongoose.Schema({
+const cropSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
+      type: String,
+      required: true
     }
-})
+  },
+  { timestamps }
+);
 
-cropSchema.index({
+cropSchema.index(
+  {
     name: 1
-}, {unique: true})
+  },
+  { unique: true }
+);
 
-export const Crop = mongoose.model('crop', cropSchema)
+export const Crop = mongoose.model("crop", cropSchema);
