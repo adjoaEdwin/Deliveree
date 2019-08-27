@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hello, world</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%=title%></title>
+    <link
+      rel="shortcut icon"
+      href="../images/fav_icon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <!-- Bulma Version 0.7.5-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/landing.css" />
   </head>
+
   <body>
-    <div class="jumbotron">
-      <h1 class="display-4"><%=message%></h1>
-      <p class="lead">
-        This is a simple hero unit, a simple jumbotron-style component for
-        calling extra attention to featured content or information.
-      </p>
-      <hr class="my-4" />
-      <p>
-        It uses utility classes for typography and spacing to space content out
-        within the larger container.
-      </p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <div class="hero-head">
+      <%include partials/header%>
     </div>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-6 is-offset-3">
+            <h1 class="title">
+              My little express server...
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%include partials/footer%>
+    <script async type="text/javascript" src="/assets/main.js"></script>
   </body>
 </html>

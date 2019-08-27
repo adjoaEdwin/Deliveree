@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%=title%></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <!-- Bulma Version 0.7.x-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+
+  <body>
+    <% include partials/header%>
+
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-4 is-offset-4">
+            <h1 class="title is-1">Sign Up</h1>
+            <div class="box">
+              <form action="">
+                <div class="field">
+                  <label class="label">First Name</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input
+                      class="input is-medium"
+                      type="text"
+                      placeholder="First name"
+                      name="first_name"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label is-left">Last Name</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input
+                      class="input is-medium"
+                      type="text"
+                      placeholder="Last name"
+                      name="last_name"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input
+                      class="input is-medium"
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label is-right">Password</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input
+                      class="input is-medium"
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  class="button is-block is-info is-large is-fullwidth"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
+              </form>
+            </div>
+            <p class="has-text-grey">
+              <a href="../">Login</a> &nbsp;·&nbsp;
+              <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+              <a href="../">Need Help?</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%include partials/footer%>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+  </body>
+</html>

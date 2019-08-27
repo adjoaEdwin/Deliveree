@@ -10,7 +10,7 @@ import ticketRouter from "./routes/tickets.router";
 
 export const app = express();
 
-//app.disable("x-powered-by");
+app.disable("x-powered-by");
 
 // middleware here
 app.use(cors());
@@ -19,25 +19,35 @@ app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 // static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public/")));
 app.use(
   "/css",
-  express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css"))
+  express.static(path.join(__dirname, "/node_modules/bulma/css"))
 );
-app.use(
-  "/js",
-  express.static(path.join(__dirname, "/node_modules/bootstrap/dist/js"))
-);
-app.use(
-  "/js",
-  express.static(path.join(__dirname, "/node_modules/jquery/dist"))
-);
+app.use("/css", express.static(path.join(__dirname, "public/css")));
+app.use("/assets", express.static(path.join(__dirname, "public/images")));
+app.use("/assets", express.static(path.join(__dirname, "public/js")));
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.render("index", { message: "My little express server ..." });
+  res.render("index", { title: "Deliveree" });
 });
+
+app.get("/signup", (req, res) => {
+  res.render("signup", { title: "Sign Up" });
+});
+
+app.get("/login", (req, res) => {
+  res.render("login", { title: "Login" });
+});
+
+app.get("/user/dashboard", (req, res) => {
+  res.render("dashboard", { title: "Dashboard" });
+});
+
+//auth routes
+//app.use;
 
 // routes -------------
 app.use("/api/crops", cropRouter);
