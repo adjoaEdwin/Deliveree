@@ -5,8 +5,10 @@ import morgan from "morgan";
 import config from "./config";
 import path from "path";
 import { connect } from "./utils/db";
+import { signup, login } from "./utils/auth";
 import cropRouter from "./routes/crop.router";
 import ticketRouter from "./routes/tickets.router";
+import userRouter from "./routes/user.router";
 
 export const app = express();
 
@@ -47,11 +49,13 @@ app.get("/user/dashboard", (req, res) => {
 });
 
 //auth routes
-//app.use;
+app.post("/signup", signup);
+app.post("/login", login);
 
 // routes -------------
 app.use("/api/crops", cropRouter);
 app.use("/api/tickets", ticketRouter);
+app.use("/api/users", userRouter);
 
 export const start = async () => {
   try {

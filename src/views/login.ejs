@@ -31,7 +31,7 @@
             <h1 class="title is-1">Login</h1>
             <p class="subtitle has-text-grey">Please login to proceed.</p>
             <div class="box">
-              <form action="">
+              <form action="/login" method="POST">
                 <div class="field">
                   <label class="label">Email</label>
                   <div class="control">
@@ -39,6 +39,7 @@
                       class="input is-medium"
                       type="text"
                       placeholder="e.g joe@example.com"
+                      name="email"
                     />
                   </div>
                 </div>
@@ -50,6 +51,7 @@
                       class="input is-medium"
                       type="password"
                       placeholder="Password"
+                      name="password"
                     />
                   </div>
                 </div>
