@@ -9,6 +9,7 @@ import { signup, login } from "./utils/auth";
 import cropRouter from "./routes/crop.router";
 import ticketRouter from "./routes/tickets.router";
 import userRouter from "./routes/user.router";
+import { User } from "./models/user.models";
 
 export const app = express();
 
@@ -17,7 +18,7 @@ app.disable("x-powered-by");
 // middleware here
 app.use(cors());
 app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
 // static files
@@ -42,10 +43,6 @@ app.get("/signup", (req, res) => {
 
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
-});
-
-app.get("/user/dashboard", (req, res) => {
-  res.render("dashboard", { title: "Dashboard" });
 });
 
 //auth routes

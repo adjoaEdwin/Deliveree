@@ -1,14 +1,15 @@
 import { Router } from "express";
-import controllers from "../controllers/user.controller";
+import { User } from "../models/user.models";
+import { me, updateMe, getOne } from "../controllers/user.controller";
 
 const router = Router();
 
-router.route("/").get(controllers.getMany);
+/**
+ * Handle the HTTP request for a list of all Employees
+ */
 
-router
-  .route("/:id")
-  .get(controllers.getOne)
-  .put(controllers.updateOne)
-  .delete(controllers.removeOne);
+router.get("/", me);
+router.get("/user/dashboard", getOne);
+router.put("/", updateMe);
 
 export default router;

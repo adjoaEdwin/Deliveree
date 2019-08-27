@@ -32,6 +32,7 @@ export const signup = async (req, res) => {
   try {
     const user = await User.create(req.body);
     const token = newToken(user);
+    console.log(user.fullname);
     return res.sendStatus(201).send({ token });
   } catch (e) {
     console.log(e);
@@ -48,7 +49,7 @@ export const login = async (req, res) => {
 
   try {
     const user = await User.findOne({ email: req.body.email })
-      .select("email password")
+      .select("email password first_name last_name")
       .exec();
 
     if (!user) {
@@ -62,7 +63,10 @@ export const login = async (req, res) => {
     }
 
     const token = newToken(user);
-    return res.status(200).send({ token });
+    res.render("users/dashboard", { user });
+    // let url = "/users/dashboard";
+    // res.redirect(200, url);
+    //return res.status(200).send({ token });
   } catch (e) {
     console.log(e);
     res.status(500).end();

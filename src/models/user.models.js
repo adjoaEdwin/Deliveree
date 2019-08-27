@@ -47,6 +47,10 @@ userSchema.pre("save", function(next) {
   });
 });
 
+userSchema.virtual("fullname").get(function() {
+  return `${this.first_name} ${this.last_name}`;
+});
+
 userSchema.methods.checkPassword = function(password) {
   const passwordHash = this.password;
 
@@ -60,9 +64,5 @@ userSchema.methods.checkPassword = function(password) {
     });
   });
 };
-
-userSchema.virtual("fullname").get(function() {
-  return this.first_name + " " + this.last_name;
-});
 
 export const User = mongoose.model("user", userSchema);
