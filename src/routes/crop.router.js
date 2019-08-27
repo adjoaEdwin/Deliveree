@@ -1,16 +1,16 @@
 import { Router } from "express";
-import controller from "../controllers/crop.controller";
+import controllers from "../controllers/crop.controller";
 
 const router = Router();
 
 router
   .route("/")
-  .get(controller.getMany)
-  .post(controller.createOn);
+  .get(controllers.getMany)
+  .post(controllers.createOne);
 
 router
   .route("/:id")
-  .put(controller.updateOne)
-  .get(controller.getOne);
+  .put(controllers.updateOne)
+  .get(controllers.getOne);
 
 export default router;

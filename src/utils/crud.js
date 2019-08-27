@@ -1,6 +1,6 @@
 export const getOne = model => async (req, res) => {
   try {
-    const doc = await Model.findOne({ _id: req.params.id }).lean().exec;
+    const doc = await model.findOne({ _id: req.params.id }).lean().exec;
 
     if (!doc) {
       return res.status(400).end();
@@ -15,7 +15,8 @@ export const getOne = model => async (req, res) => {
 
 export const getMany = model => async (req, res) => {
   try {
-    const docs = await Model.find({})
+    const docs = await model
+      .find({})
       .lean()
       .exec();
 
@@ -32,7 +33,7 @@ export const getMany = model => async (req, res) => {
 
 export const createOne = model => async (req, res) => {
   try {
-    const doc = await Model.create(...req.body);
+    const doc = await model.create({ ...req.body });
 
     return res.status(201).send({ doc });
   } catch (e) {
@@ -44,11 +45,8 @@ export const createOne = model => async (req, res) => {
 
 export const updateOne = model => async (req, res) => {
   try {
-    const updatedDoc = await Model.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body,
-      { new: true }
-    )
+    const updatedDoc = await model
+      .findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .lean()
       .exec();
 
@@ -65,7 +63,8 @@ export const updateOne = model => async (req, res) => {
 
 export const removeOne = model => async (req, res) => {
   try {
-    const removeDoc = await Model.findOneAndRemove({ _id: req.params.id })
+    const removeDoc = await model
+      .findOneAndRemove({ _id: req.params.id })
       .lean()
       .exec();
 

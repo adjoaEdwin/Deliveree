@@ -7,7 +7,7 @@ const cropSchema = new mongoose.Schema(
       required: true
     }
   },
-  { timestamps }
+  { timestamps: true }
 );
 
 cropSchema.index(
